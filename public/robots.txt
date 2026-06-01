@@ -1,0 +1,6 @@
+# Allow standard search engines & AI crawlers
+User-agent: *
+Disallow:
+
+Sitemap: https://justinkondratenko.dev/sitemap.xml
+Sitemap: https://papatenko.org/sitemap.xml
