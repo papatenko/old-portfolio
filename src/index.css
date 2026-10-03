@@ -29,6 +29,16 @@
     0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 
+/* react-chrono turns each card description into a small scroll box that
+   steals wheel/touch scrolling from the page. Let the text show in full and
+   keep scroll chaining on so the page always scrolls over the timeline. */
+.rc-card-text,
+[class*="TimelineMainWrapper"] {
+  max-height: none !important;
+  overflow-y: visible !important;
+  overscroll-behavior: auto !important;
+}
+
 body {
   margin: 0;
   font-family:
