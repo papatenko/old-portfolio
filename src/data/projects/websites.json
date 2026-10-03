@@ -7,7 +7,7 @@
     "url": "/img/projects/metro-q.png",
     "alt": "metro-q.png",
     "github": "https://github.com/papatenko/metro-pass",
-    "demo": "https://mq.papatenko.org/",
+    "demo": "https://metro.papatenko.org/",
     "desc": "A clone of the metro q ticketing website built with React and Tailwind CSS."
   },
   {
