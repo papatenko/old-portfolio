@@ -1,9 +1,9 @@
 # Build Stage
 FROM node:alpine AS build
 WORKDIR /app
-COPY package*.json ./
-RUN npm config set legacy-peer-deps true
-RUN npm i --legacy-peer-deps # like npm install but for CI server
+RUN npm install -g pnpm@12.8.1
+COPY package.json pnpm-lock.yaml ./
+RUN pnpm install --frozen-lockfile
 COPY . .
 
 # Development stage w/ dev dependencies
@@ -11,12 +11,12 @@ COPY . .
 FROM build AS development
 # RUN npm install --save-dev 
 EXPOSE 3000
-CMD ["npm", "start"]
+CMD ["pnpm", "start"]
 
 # Production stage (no tag so it's the default)
 
 FROM build AS production
-RUN npm run build
+RUN pnpm run build
 EXPOSE 4000
 
 CMD ["npx", "serve", "-s", "build", "-l", "4000"]
